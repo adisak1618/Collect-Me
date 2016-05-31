@@ -1,0 +1,11 @@
+//authentication
+201 email or password is null
+202 wrong password
+403 Unauthorized
+
+// input validation
+101 input value is null (ไม่ได้ใช่ค่ามา)
+
+
+//client error
+301 Json wrong format

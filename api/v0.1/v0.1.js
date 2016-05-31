@@ -1,0 +1,11 @@
+var express = require('express');
+var router = express.Router();
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var authen = require('./routes/authen');
+var word = require('./routes/word');
+router.use('/users', users);
+router.use('/authen', authen);
+router.use('/',routes);
+router.use('/words',word);
+module.exports = router;
