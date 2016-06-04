@@ -72,7 +72,8 @@ router.post('/add', middleware.isLogin, function(req, res, next){
         wordData.update({'user_id': req.userdata._id, "words.name": words[word].name},
           {
             $inc :{"words.$.count":1},
-            $set :{"words.$.understand": (words[word].understand == 0 ? false : true)}
+            $set :{"words.$.understand": (words[word].understand == 0 ? false : true)},
+            $push :{"words.$.history": {url: words[word].url, title: words[word].title, action: words[word].action}}
           },
           false,
           function(err,data){
@@ -89,8 +90,9 @@ router.post('/add', middleware.isLogin, function(req, res, next){
         //
         //   }
         // );
-
+        console.log("title");
         console.log(words[word]);
+        console.log("------");
 
         // wordData
         //   .findOne({'user_id':req.userdata._id})

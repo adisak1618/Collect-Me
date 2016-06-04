@@ -12,7 +12,15 @@ var wordsSchema = new Schema({
       name: String,
       count: { type: Number, default: 0 },
       last_update: { type: Date, default: Date.now },
-      understand:{ type: Boolean, default: false }
+      understand:{ type: Boolean, default: false },
+      history:[
+        {
+          url: String,
+          title: String,
+          action: { type: Number, default: 0 }, // 0 read, 1 understand, 2 do not understand
+          read_date: { type: Date, default: Date.now }
+        }
+      ]
     }
   ],
   last_update: { type: Date, default: Date.now },
